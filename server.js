@@ -8,4 +8,4 @@ connectDB();
 
 app.listen(PORT, () => {
   console.log(`✅ Server started: http://localhost:${PORT}`);
-});
+}); 
