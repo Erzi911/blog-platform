@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Platform - CRUD API</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Blog Platform</h1>
+            <p>Create, Read, Update, and Delete Blog Posts</p>
+        </header>
+
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="🔍 Search by title or content...">
+                <button class="btn btn-search" onclick="applyFilters()">Search</button>
+            </div>
+            
+            <div class="filter-container">
+                <select id="tag-filter">
+                    <option value="">All Tags</option>
+                </select>
+                
+                <select id="sort-filter">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="title">By Title (A-Z)</option>
+                </select>
+                
+                <button class="btn btn-secondary" onclick="resetFilters()">Reset</button>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h2 id="form-title">Create New Blog Post</h2>
+            <form id="blog-form">
+                <input type="hidden" id="blog-id">
+                
+                <div class="form-group">
+                    <label for="title">Title *</label>
+                    <input type="text" id="title" placeholder="Enter blog title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" placeholder="Enter author name (default: Anonymous)">
+                </div>
+
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" placeholder="Enter tags separated by commas (e.g., Technology, Travel, Food)">
+                    <small class="form-hint">Separate multiple tags with commas</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="body">Body *</label>
+                    <textarea id="body" rows="6" placeholder="Write your blog content..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Create Post</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <div id="message" class="message" style="display: none;"></div>
+
+        <section class="blogs-section">
+            <h2>All Blog Posts</h2>
+            <div id="blogs-container" class="blogs-container">
+                <p class="loading">Loading blog posts...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
